@@ -1,23 +1,33 @@
 import logo from './logo.svg';
 import './App.css';
+import Menu from "./commons/Menu";
+import Home from "./commons/Home";
+import Encabezado from './commons/Encabezado';
+import { useState } from 'react';
+import GestionTemas from './tema/GestionTemas';
+import GestionCurso from './curso/GestionCurso';
+import BuscarCurso from './curso/BuscarCurso';
 
 function App() {
+
+  const [optMenu,setOptMenu] = useState('Home');
+
+  const elegirMenu = (opt) => {
+    console.log('Menu Seleccionado');
+    setOptMenu(opt);
+  }
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <Encabezado titulo="App Dam 01"></Encabezado>
+        <Menu doElegirMenu={elegirMenu}></Menu>
       </header>
+      {optMenu==='Home' && <Home />}
+      {optMenu==='btnTemas' && <GestionTemas />}
+      {optMenu==='btnCursos' && <GestionCurso />}
+      {optMenu==='btnBuscar' && <BuscarCurso />}
+      
     </div>
   );
 }

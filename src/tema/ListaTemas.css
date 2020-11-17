@@ -1,0 +1,11 @@
+.contenedorTabla {
+  display: flex;
+  flex: 100%;
+  width: 100%;
+}
+
+.tabla {
+  display: flexbox;
+  flex: 100%;
+  width: 100%;
+}
